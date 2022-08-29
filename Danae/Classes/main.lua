@@ -88,4 +88,42 @@ local function loaded()
     end
 end
 
-event.register("loaded", loaded)
+local config = {}
+config.configPath = "Ahead of the Classes"
+config.defaultConfig = {modEnabled = true}
+local inMemConfig = mwse.loadConfig(config.configPath, config.defaultConfig)
+config.config = setmetatable({
+    save = function() mwse.saveConfig(config.configPath, inMemConfig) end
+}, {
+    __index = function(_, key) return inMemConfig[key] end,
+    __newindex = function(_, key, value) inMemConfig[key] = value end
+})
+-- code that's copied over from merlord's another mod
+
+event.register("loaded", function() if config.modEnabled then loaded() end end)
+
+local function modConfig()
+    local template = mwse.mcm.createTemplate("Ahead of the Classes")
+    template:saveOnClose("Ahead of the Classes", config);
+    template:register();
+    local page = template:createSideBarPage({
+        label = "Ahead of the Classes",
+        description = ("This mod is a lite version of Danae and Merlord's Ahead of the Classes, " ..
+            "with compatibility for Better Character Classes, " ..
+            "and without all the new playable classes and TR OAAB dependency." ..
+            "\n" .. "\n" ..
+            "The loadouts have been changed to better suit BTBGI. " ..
+            "The average budget is 185 gold, with lowest being 50 and the highest being 500. " ..
+            "Every vanilla playable class has 2 loadouts to randomly pick from. " ..
+            "All modded gear has been removed or replaced by vanilla items/spells.")
+    });
+    page:createOnOffButton({
+        label = "Ahead of the Classes",
+        description = ("Whether you want it or not, you don't need to uninstall this mod. "),
+        variable = mwse.mcm.createTableVariable {
+            id = "modEnabled",
+            table = config
+        }
+    });
+end
+event.register("modConfigReady", modConfig)

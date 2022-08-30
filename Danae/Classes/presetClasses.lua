@@ -1,5 +1,4 @@
 local this = {}
-local throwingStarAmount = 100
 --[[
     Functions for each class return
     gear list of item objects
@@ -123,12 +122,12 @@ Minors: Armorer, Security, Restoration, Block, Mercantile]]
                 gearList = {
                     {item = "common_shirt_03_c"}, -- 4g
                     {item = "chitin arrow", count = 40}, -- 40g, lvl 5
-                    {item = "iron boots"}, -- 10g, lvl 5
+                    {item = "BM bear boots"}, -- 50g, lvl 5
                     {item = "common_pants_03_c"}, -- 4g
                     {item = "chitin short bow"}, -- 20g, lvl 5
                     {item = "chitin dagger"}, -- 6g, lvl 5
-                    {item = "random gold", count = 16} -- 16g
-                }, -- 100g
+                    {item = "random gold", count = 26} -- 26g
+                }, -- 150g
                 spellList = {},
                 customSkillList = {
                     {skillId = "fletching", value = 15},
@@ -250,7 +249,7 @@ Minors: Mercantile, Illusion, Sneak, Enchant, Security]]
                     {item = "common_shoes_02"}, -- 2g
                     {item = "common_shirt_05"}, -- 4g
                     {item = "misc_de_lute_01"}, -- 10g
-                    {item = "iron longsowrd"}, -- 120g, lvl 10
+                    {item = "iron longsword"}, -- 120g, lvl 10
                     {item = "random gold", count = 10} -- 10g
                 }, -- 150g
                 spellList = {},
@@ -315,7 +314,7 @@ Minors: Speechcraft, Armorer, Alteration, Mercantile, Alchemy]]
         if math.random() < 0.5 then
             return {
                 gearList = {
-                    {item = "iron broadsowrd"}, -- 30g, lvl 5
+                    {item = "iron broadsword"}, -- 30g, lvl 5
                     {item = "extravagant_pants_02"}, -- 60g
                     {item = "expensive_shoes_03"}, -- 10g
                     {item = "expensive_shirt_03"}, -- 15g
@@ -590,8 +589,7 @@ Minors: Block, Sneak, Security, Alchemy, Armorer]]
                     {item = "common_shirt_02"}, -- 4g
                     {item = "common_shoes_04"}, -- 2g
                     {item = "pick_apprentice_01"}, -- 10g
-                    {item = "chitin dagger"}, -- 6g, lvl 5
-                    {item = "random gold", count = 24} -- 24g
+                    {item = "iron broadsword"} -- 30g, lvl 5
                 }, -- 50g
                 spellList = {},
                 customSkillList = {
@@ -606,9 +604,9 @@ Minors: Block, Sneak, Security, Alchemy, Armorer]]
                     {item = "netch_leather_boots"}, -- 50g, lvl 5
                     {item = "common_pants_02"}, -- 4g
                     {item = "common_shirt_02_hh"}, -- 4g
-                    {item = "steel dagger"}, -- 20g, lvl 20
+                    {item = "iron longsword"}, -- 120g, lvl 20
                     {item = "random gold", count = 22} -- 22g
-                }, -- 200g
+                }, -- 300g
                 spellList = {},
                 customSkillList = {
                     {skillId = "Ashfall:Survival", value = 5},
@@ -631,7 +629,7 @@ Minors: Marksman, Alchemy, Mercantile, Armorer, Speechcraft]]
                 gearList = {
                     {item = "p_restore_health_b", count = 2}, -- 20g
                     {item = "p_fire_shield_s"}, -- 50g
-                    {item = "iron longsowrd"}, -- 120g, lvl 10
+                    {item = "iron longsword"}, -- 120g, lvl 10
                     {item = "long bow"}, -- 250g, lvl 10
                     {item = "iron arrow", count = 60} -- 60g, lvl 10
                 }, -- 500g
@@ -718,7 +716,7 @@ Minors: Blunt Weapon, Enchant, Alchemy, Mysticism, Restoration
                     {item = "common_shirt_02_t"}, -- 4g
                     {item = "common_shoes_02"}, -- 2g
                     {item = "common_belt_02"}, -- 2g
-                    {item = "iron longsowrd"}, -- 120g, lvl 10
+                    {item = "iron longsword"}, -- 120g, lvl 10
                     {item = "random gold", count = 18} -- 18g
                 }, -- 150g
                 spellList = {},
@@ -802,9 +800,10 @@ Minors: Armorer, Athletics, Acrobatics, Mercantile, Alchemy]]
                     {item = "chitin spear"}, -- 13g, lvl 5
                     {item = "common_shirt_02"}, -- 4g
                     {item = "common_pants_05"}, -- 4g
+                    {item = "iron_gauntlet_left"}, -- 10g, lvl 5
                     {item = "iron_gauntlet_right"}, -- 10g, lvl 5
                     {item = "common_shoes_04"}, -- 2g
-                    {item = "random_gold", count = 17} -- 17g
+                    {item = "random_gold", count = 7} -- 7g
                 }, -- 50g
                 spellList = {},
                 customSkillList = {{skillId = "climbing", value = 15}}
@@ -841,7 +840,7 @@ Minors: Medium Armor, Block, Armorer, Speechcraft, Mysticism]]
                     {item = "imperial_chain_greaves"}, -- 50g, lvl 10
                     {item = "BM bear boots"}, -- 50g, lvl 20
                     {item = "common_skirt_02"}, -- 4g
-                    {item = "wodden staff"}, -- 8g, lvl 5
+                    {item = "wooden staff"}, -- 8g, lvl 5
                     {item = "common_shirt_02"}, -- 4g
                     {item = "random_gold", count = 34} -- 34g
                 }, -- 50g

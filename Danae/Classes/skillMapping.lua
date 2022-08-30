@@ -1,276 +1,182 @@
 return {
-    [tes3.skill.block] = function()
-        local gearList = {}
-        if tes3.mobilePlayer.lightArmor.base > tes3.mobilePlayer.heavyArmor.base then
-            table.insert(gearList, { item = "iron_shield" })
-        else
-            table.insert(gearList, { item = "netch_leather_shield" })
-        end
-        return {
-            gearList = gearList,
-            spellList = {},
-        }
-    end,
-    [tes3.skill.armorer] = function()
-        return {
-            gearList = {
-                { item = "hammer_repair", count = 2 },
-            },
-            spellList = {
-            },
-        }
-    end,
+    [tes3.skill.block] = function() return {gearList = {}, spellList = {}} end,
+    [tes3.skill.armorer] = function() return {gearList = {}, spellList = {}} end,
     [tes3.skill.heavyArmor] = function()
-        return {
-            gearList = {
-                { item = "iron_cuirass"},
-            },
-            spellList = {
-            },
-        }
+        local gearList = {}
+        local choice = math.random()
+        if choice > 0.83 then
+            table.insert(gearList, {item = "iron_cuirass"})
+        elseif choice > 0.66 then
+            table.insert(gearList, {item = "iron_gauntlet_left"})
+            table.insert(gearList, {item = "iron_gauntlet_right"})
+        elseif choice > 0.5 then
+            table.insert(gearList, {item = "imperial boots"})
+        elseif choice > 0.33 then
+            table.insert(gearList, {item = "iron boots"})
+            table.insert(gearList, {item = "iron cuirass"})
+        elseif choice > 0.16 then
+            table.insert(gearList, {item = "imperial boots"})
+            table.insert(gearList, {item = "imperial left gauntlet"})
+        else
+            table.insert(gearList, {item = "iron_bracer_left"})
+            table.insert(gearList, {item = "iron_bracer_right"})
+            table.insert(gearList, {item = "iron_greaves"})
+        end
+        return {gearList = gearList, spellList = {}}
     end,
     [tes3.skill.bluntWeapon] = function()
-        local gearList = {}
         if tes3.mobilePlayer.strength.base > tes3.mobilePlayer.intelligence.base then
-            table.insert(gearList, { item = "steel club"} )
+            return {gearList = {{item = "spiked club"}}, spellList = {}}
         else
-            table.insert(gearList, { item = "iron club"} )
+            return {gearList = {{item = "wooden staff"}}, spellList = {}}
         end
-        return {
-            gearList = gearList,
-            spellList = {},
-        }
     end,
     [tes3.skill.longBlade] = function()
-        return {
-            gearList = {
-                { item = "iron longsword"},
-            },
-            spellList = {
-            },
-        }
+        local longBlade = table.choice({"iron broadsword", "iron longsword"})
+        return {gearList = {{item = longBlade}}, spellList = {}}
     end,
     [tes3.skill.axe] = function()
-        return {
-            gearList = {
-                { item = "iron war axe" }
-            },
-            spellList = {
-            },
-        }
+        local axe = table.choice({"iron war axe", "chitin war axe"})
+        return {gearList = {{item = axe}}, spellList = {}}
     end,
     [tes3.skill.spear] = function()
-        return {
-            gearList = {
-                { item = "iron spear" },
-            },
-            spellList = {
-            },
-        }
+        return {gearList = {{item = "chitin spear"}}, spellList = {}}
     end,
-    [tes3.skill.enchant] = function()
-        return {
-            gearList = {
-                { item = "aa_cl_ench_ring" },
-                { item = "Misc_SoulGem_Petty", count= 2},
-            },
-            spellList = {
-            },
-        }
-    end,
+    [tes3.skill.enchant] = function() return {gearList = {}, spellList = {}} end,
     [tes3.skill.destruction] = function()
-        return {
-            gearList = {
-                },
-            spellList = {
-                "fire bite",
-                "frost bolt",
-            },
-        }
+        local destructionSpell = table.choice({
+            "frostbite", "dread curse: health", "Frostball_large"
+        })
+        return {gearList = {}, spellList = {item = destructionSpell}}
     end,
     [tes3.skill.alteration] = function()
-        return {
-            gearList = {
-            },
-            spellList = {
-                "feather",
-                "open",
-            },
-        }
+        return {gearList = {}, spellList = {}}
     end,
-    [tes3.skill.illusion] = function()
-        return {
-            gearList = {
-            },
-            spellList = {
-                "light",
-                "chameleon",
-            },
-        }
-    end,
+    [tes3.skill.illusion] = function() return {gearList = {}, spellList = {}} end,
     [tes3.skill.conjuration] = function()
-        return {
-            gearList = {
-            },
-            spellList = {
-                "bound dagger",
-                "summon scamp",
-            },
-        }
+        return {gearList = {}, spellList = {}}
     end,
     [tes3.skill.mysticism] = function()
-        return {
-            gearList = {
-            },
-            spellList = {
-                "telekinesis",
-                "soul trap",
-            },
-        }
+        local choice = math.random()
+        if choice > 0.75 then
+            return {gearList = {}, spellList = {{item = "sotha's mirror"}}}
+        elseif choice > 0.5 then
+            return {gearList = {}, spellList = {{item = "mark", "recall"}}}
+        elseif choice > 0.25 then
+            return {
+                gearList = {},
+                spellList = {{item = "sotha's mirror", "mark"}}
+            }
+        else
+            return {gearList = {}, spellList = {{item = "slave belt", "mark"}}}
+        end
     end,
     [tes3.skill.restoration] = function()
-        return {
-            gearList = {
-            },
-            spellList = {
-                "mother's kiss",
-                "stamina",
-            },
-        }
-    end,
-    [tes3.skill.alchemy] = function()
-        local gearList = {
-            { item = "ingred_bittergreen_petals_01", count = 1},
-            { item = "ingred_fire_salts_01", count = 1},
-        }
-        if math.random() < 0.5 then
-            table.insert(gearList,  { item = "apparatus_a_mortar_01"})
+        if math.random() > 0.5 then
+            return {gearList = {}, spellList = {"seryn's gift", "cure poison"}}
+        else
+            return {
+                gearList = {
+                    {item = "p_restore_health_c", count = 5},
+                    {item = "p_restore_fatigue_b"}
+                },
+                spellList = {}
+            }
         end
-        if math.random() < 0.2 then
-            table.insert(gearList,  { item = "apparatus_a_alembic_01"})
-        end 
-        return {
-            gearList = gearList,
-            spellList = {},
-        }
     end,
+    [tes3.skill.alchemy] = function() return {gearList = {}, spellList = {}} end,
     [tes3.skill.security] = function()
-        return {
-            gearList = {
-                { item = "probe_journeyman_01", count = 2 },
-                { item = "pick_journeyman_01",  count = 2 },
-            },
-            spellList = {
-            },
-        }
-    end,
-    [tes3.skill.sneak] = function()
-        local gearList = {}
-        if tes3.mobilePlayer.shortBlade.base > 20 then
-            table.insert(gearList, { item = "p_chameleon_s" })
+        local gearList = {{item = "pick_apprentice_01"}}
+        if math.random() > 0.5 then
+            table.insert(gearList, {item = "probe_apprentice_01"})
         end
-        return {
-            gearList = gearList,
-            spellList = {},
-        }
+        return {gearList = gearList, spellList = {}}
     end,
+    [tes3.skill.sneak] = function() return {gearList = {}, spellList = {}} end,
     [tes3.skill.lightArmor] = function()
         local gearList = {}
-        local armors = {
-                { item = "left leather bracer" },
-                { item = "right leather bracer" },
-        }
-        local choice = table.choice(armors)
-        table.insert(gearList, choice)
-        return {
-            gearList = gearList,
-            spellList = {},
-        }
+        local choice = math.random()
+        if choice > 0.8 then
+            table.insert(gearList, {item = "netch_leather_cuirass"})
+            table.insert(gearList, {item = "netch_leather_greaves"})
+            table.insert(gearList, {item = "fur_boots"})
+        elseif choice > 0.6 then
+            table.insert(gearList, {item = "netch_leather_gauntlet_left"})
+            table.insert(gearList, {item = "netch_leather_greaves"})
+        elseif choice > 0.4 then
+            table.insert(gearList, {item = "netch_leather_cuirass"})
+            table.insert(gearList, {item = "netch_leather_boots"})
+        elseif choice > 0.2 then
+            table.insert(gearList, {item = "netch_leather_boots"})
+        else
+            table.insert(gearList, {item = "chitin greaves"})
+            table.insert(gearList, {item = "chitin boots"})
+            table.insert(gearList, {item = "chitin guantlet - left"})
+            table.insert(gearList, {item = "chitin guantlet - right"})
+        end
+        return {gearList = gearList, spellList = {}}
     end,
     [tes3.skill.shortBlade] = function()
-        return {
-            gearList = {
-                { item = "steel dagger" },
-            },
-            spellList = {
-            },
-        }
+        local shortBlade = table.choice({
+            "iron tanto", "iron dagger", "chitin dagger", "silver dagger",
+            "steel tanto", "fireblade"
+        })
+        return {gearList = {{item = shortBlade}}, spellList = {}}
     end,
     [tes3.skill.marksman] = function()
-        return {
-            gearList = {
-                { item = "short bow" },
-                { item = "iron arrow", count = 30 },
-            },
-            spellList = {
-            },
-        }
+        local gearList = {}
+        local choice = math.random()
+        if choice > 0.83 then
+            table.insert(gearList, {item = "short bow"})
+            table.insert(gearList, {item = "iron arrow", count = 40})
+        elseif choice > 0.66 then
+            table.insert(gearList, {item = "long bow"})
+            table.insert(gearList, {item = "iron arrow", count = 50})
+        elseif choice > 0.5 then
+            table.insert(gearList, {item = "chitin short bow"})
+            table.insert(gearList, {item = "chitin arrow", count = 40})
+        elseif choice > 0.33 then
+            table.insert(gearList, {item = "chitin throwing star", count = 20})
+        elseif choice > 0.16 then
+            table.insert(gearList, {item = "long bow"})
+            table.insert(gearList, {item = "chitin arrow", count = 40})
+        else
+            table.insert(gearList, {item = "chitin short bow"})
+            table.insert(gearList, {item = "iron arrow", count = 50})
+        end
+        return {gearList = gearList, spellList = {}}
     end,
     [tes3.skill.mercantile] = function()
-        return {
-            gearList = {
-                { item = "Gold_001", count = 50 },
-                { item = "AB_Misc_PurseCoin" },
-            },
-            spellList = {
-            },
-        }
+        return {gearList = {}, spellList = {}}
     end,
     [tes3.skill.handToHand] = function()
-        return {
-            gearList = {
-                { item = "aa_cl_h2h_glove_right" },
-                { item = "aa_cl_h2h_glove_left" },
-            },
-            spellList = {
-            },
-        }
+        return {gearList = {}, spellList = {}}
     end,
     [tes3.skill.unarmored] = function()
-        return {
-            gearList = {
-                { item = "watcher's belt" },
-            },
-            spellList = {
-            },
-        }
+        return {gearList = {}, spellList = {}}
     end,
     [tes3.skill.acrobatics] = function()
-        return {
-            gearList = {
-                { item = "p_jump_q" },
-
-            },
-            spellList = {
-            },
-        }
+        return {gearList = {}, spellList = {}}
     end,
     [tes3.skill.athletics] = function()
-        return {
-            gearList = {
-                { item = "p_restore_fatigue_s" },
-            },
-            spellList = {
-            },
-        }
+        return {gearList = {}, spellList = {}}
     end,
     [tes3.skill.mediumArmor] = function()
-        return {
-            gearList = {
-                { item = "imperial_chain_pauldron_left" },
-                { item = "imperial_chain_pauldron_right" },
-            },
-            spellList = {
-            },
-        }
+        local gearList = {}
+        local choice = math.random()
+        if choice > 0.66 then
+            table.insert(gearList, {item = "imperial_chain_coif_helm"})
+        elseif choice > 0.33 then
+            table.insert(gearList, {item = "imperial_chain_cuirass"})
+            table.insert(gearList, {item = "imperial_chain_greaves"})
+            table.insert(gearList, {item = "BM bear boots"})
+        else
+            table.insert(gearList, {item = "BM bear boots"})
+        end
+        return {gearList = gearList, spellList = {}}
     end,
     [tes3.skill.speechcraft] = function()
-        return {
-            gearList = {
-                { item = "potion_t_bug_musk_01" },
-            },
-            spellList = {
-            },
-        }
-    end,
+        local instrument = table.choice({"misc_de_drum_01", "misc_de_lute_01"})
+        return {gearList = {{item = instrument}}, spellList = {}}
+    end
 }

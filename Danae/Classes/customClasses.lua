@@ -20,13 +20,11 @@ function this.pickStarters()
     --[[ add items for mostly major skills, except security]]
     local gearList = {}
     local spellList = {}
+    local majorSkills = tes3.player.object.class.majorSkills
+    local minorSkills = tes3.player.object.class.minorSkills
     local topSkills = {}
-    for _, skill in ipairs(tes3.player.object.class.majorSkills) do
-        table.insert(topSkills, skill)
-    end
-    for _, skill in ipairs(tes3.player.object.class.minorSkills) do
-        table.insert(topSkills, skill)
-    end
+    for _, skill in ipairs(majorSkills) do table.insert(topSkills, skill) end
+    for _, skill in ipairs(minorSkills) do table.insert(topSkills, skill) end
 
     local gearCount = 0
 
@@ -42,6 +40,12 @@ function this.pickStarters()
         end
     end
 
+    -- Get up to 5 major skill gears
+    for _, skill in ipairs(majorSkills) do
+        if gearCount >= 5 then break end
+        if skillMapping[skill] then getGear(skill) end
+    end
+
     --[[ Joseph Edit: Only if majorSkills don't have any of the weaponSkills,
     will minorSkills addGear to make sure player get at least one weapon, 
     if minorSkills have any of the weaponSkills. ]]
@@ -51,12 +55,6 @@ function this.pickStarters()
             table.remove(topSkills, i)
             break
         end
-    end
-
-    -- Get up to 10 skill gears
-    for _, skill in ipairs(topSkills) do
-        if gearCount >= 10 then break end
-        if skillMapping[skill] then getGear(skill) end
     end
 
     --[[ Joseph Edit: random clothing ]]
@@ -109,7 +107,7 @@ function this.pickStarters()
             "common_robe_01", "common_robe_02_t", "common_robe_02_tt",
             "common_robe_05_b"
         }
-        table.insert(gearList, table.choice(robes))
+        table.insert(gearList, robes[table.choice(robes)])
     end
 
     return {gearList = gearList, spellList = spellList}

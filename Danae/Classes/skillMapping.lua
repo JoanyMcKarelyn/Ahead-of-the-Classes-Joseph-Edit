@@ -17,37 +17,43 @@ return {
         elseif choice > 0.16 then
             table.insert(gearList, {item = "imperial boots"})
             table.insert(gearList, {item = "imperial left gauntlet"})
-        else
-            table.insert(gearList, {item = "iron_bracer_left"})
-            table.insert(gearList, {item = "iron_bracer_right"})
-            table.insert(gearList, {item = "iron_greaves"})
         end
         return {gearList = gearList, spellList = {}}
     end,
     [tes3.skill.bluntWeapon] = function()
-        if tes3.mobilePlayer.strength.base > tes3.mobilePlayer.intelligence.base then
-            return {gearList = {{item = "spiked club"}}, spellList = {}}
-        else
-            return {gearList = {{item = "wooden staff"}}, spellList = {}}
+        if math.random() > 0.66 then
+            if tes3.mobilePlayer.strength.base >
+                tes3.mobilePlayer.intelligence.base then
+                return {gearList = {{item = "spiked club"}}, spellList = {}}
+            else
+                return {gearList = {{item = "wooden staff"}}, spellList = {}}
+            end
         end
     end,
     [tes3.skill.longBlade] = function()
-        local longBlade = table.choice({"iron broadsword", "iron longsword"})
-        return {gearList = {{item = longBlade}}, spellList = {}}
+        local longBlade = {
+            {item = "iron broadsword"}, {item = "iron longsword"}
+        }
+        return {gearList = {{item = table.choice(longBlade)}}, spellList = {}}
     end,
     [tes3.skill.axe] = function()
-        local axe = table.choice({"iron war axe", "chitin war axe"})
-        return {gearList = {{item = axe}}, spellList = {}}
+        local axe = {"iron war axe", "chitin war axe"}
+        return {gearList = {{item = axe[table.choice(axe)]}}, spellList = {}}
     end,
     [tes3.skill.spear] = function()
         return {gearList = {{item = "chitin spear"}}, spellList = {}}
     end,
     [tes3.skill.enchant] = function() return {gearList = {}, spellList = {}} end,
     [tes3.skill.destruction] = function()
-        local destructionSpell = table.choice({
+        local destructionSpell = {
             "frostbite", "dread curse: health", "Frostball_large"
-        })
-        return {gearList = {}, spellList = {item = destructionSpell}}
+        }
+        return {
+            gearList = {},
+            spellList = {
+                item = destructionSpell[table.choice(destructionSpell)]
+            }
+        }
     end,
     [tes3.skill.alteration] = function()
         return {gearList = {}, spellList = {}}
@@ -117,11 +123,15 @@ return {
         return {gearList = gearList, spellList = {}}
     end,
     [tes3.skill.shortBlade] = function()
-        local shortBlade = table.choice({
+        --[[local shortBlade = {
             "iron tanto", "iron dagger", "chitin dagger", "silver dagger",
-            "steel tanto", "fireblade"
-        })
-        return {gearList = {{item = shortBlade}}, spellList = {}}
+            "steel tanto", "fireblade", ""
+        }]]
+        local shortBlade = {""}
+        return {
+            gearList = {{item = shortBlade[table.choice(shortBlade)]}},
+            spellList = {}
+        }
     end,
     [tes3.skill.marksman] = function()
         local gearList = {}
@@ -164,19 +174,22 @@ return {
     [tes3.skill.mediumArmor] = function()
         local gearList = {}
         local choice = math.random()
-        if choice > 0.66 then
+        if choice > 0.75 then
             table.insert(gearList, {item = "imperial_chain_coif_helm"})
-        elseif choice > 0.33 then
+        elseif choice > 0.5 then
             table.insert(gearList, {item = "imperial_chain_cuirass"})
             table.insert(gearList, {item = "imperial_chain_greaves"})
             table.insert(gearList, {item = "BM bear boots"})
-        else
+        elseif choice > 0.25 then
             table.insert(gearList, {item = "BM bear boots"})
         end
         return {gearList = gearList, spellList = {}}
     end,
     [tes3.skill.speechcraft] = function()
-        local instrument = table.choice({"misc_de_drum_01", "misc_de_lute_01"})
-        return {gearList = {{item = instrument}}, spellList = {}}
+        local instrument = {"misc_de_drum_01", "misc_de_lute_01"}
+        return {
+            gearList = {{item = instrument[table.choice(instrument)]}},
+            spellList = {}
+        }
     end
 }

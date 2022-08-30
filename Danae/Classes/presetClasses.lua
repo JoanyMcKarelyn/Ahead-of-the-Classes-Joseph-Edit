@@ -35,7 +35,7 @@ Minors: Speechcraft, Alteration, Security, Hand-to-Hand, Illusion]]
                     {item = "common_shirt_02"}, -- 4g
                     {item = "long bow"}, -- 250g, lvl 10
                     {item = "iron arrow", count = 50}, -- 50g, lvl 10
-                    {item = "random gold", count = 42} -- 42g
+                    {item = "gold_001", count = math.random(42)} -- 42g
                 }, -- 350g
                 spellList = {},
                 customSkillList = {
@@ -63,7 +63,7 @@ Minors: Mercantile, Destruction, Block, Security, Illusion]]
                     {item = "fur_boots"}, -- 10g, lvl 5
                     {item = "common_pants_03_b"}, -- 4g
                     {item = "iron tanto"}, -- 75g, lvl 10
-                    {item = "random gold", count = 11} -- 11g
+                    {item = "gold_001", count = math.random(11)} -- 11g
                 }, -- 250g
                 spellList = {},
                 customSkillList = {
@@ -81,7 +81,7 @@ Minors: Mercantile, Destruction, Block, Security, Illusion]]
                     {item = "common_pants_03_c"}, -- 4g
                     {item = "common_amulet_01"}, -- 2g
                     {item = "iron dagger"}, -- 10g, lvl 5
-                    {item = "random gold", count = 5} -- 5g
+                    {item = "gold_001", count = math.random(5)} -- 5g
                 }, -- 100g
                 spellList = {},
                 customSkillList = {
@@ -109,7 +109,7 @@ Minors: Armorer, Security, Restoration, Block, Mercantile]]
                     {item = "common_shoes_04"}, -- 2g
                     {item = "common_pants_04"}, -- 4g
                     {item = "chitin short bow"}, -- 20g, lvl 5
-                    {item = "random gold", count = 30} -- 30g
+                    {item = "gold_001", count = math.random(30)} -- 30g
                 }, -- 100g
                 spellList = {},
                 customSkillList = {
@@ -126,7 +126,7 @@ Minors: Armorer, Security, Restoration, Block, Mercantile]]
                     {item = "common_pants_03_c"}, -- 4g
                     {item = "chitin short bow"}, -- 20g, lvl 5
                     {item = "chitin dagger"}, -- 6g, lvl 5
-                    {item = "random gold", count = 26} -- 26g
+                    {item = "gold_001", count = math.random(26)} -- 26g
                 }, -- 150g
                 spellList = {},
                 customSkillList = {
@@ -156,7 +156,7 @@ Minors: Security, Alchemy, Enchant, Destruction, Athletics
                     {item = "common_pants_03_c"}, -- 4g
                     {item = "probe_apprentice_01"}, -- 10g
                     {item = "pick_apprentice_01"}, -- 10g
-                    {item = "random gold", count = 4} -- 4g
+                    {item = "gold_001", count = math.random(4)} -- 4g
                 }, -- 100g
                 spellList = {},
                 customSkillList = {{skillId = "climbing", value = 5}}
@@ -165,7 +165,7 @@ Minors: Security, Alchemy, Enchant, Destruction, Athletics
             return {
                 gearList = {
                     {item = "silver dagger"}, -- 40g, lvl 30
-                    {item = "random gold", count = 60} -- 10g
+                    {item = "gold_001", count = math.random(60)} -- 10g
                 }, -- 50g
                 spellList = {},
                 customSkillList = {{skillId = "climbing", value = 5}}
@@ -190,7 +190,7 @@ Minors: Armorer, Acrobatics, Sneak, Marksman, Mysticism
                     {item = "netch_leather_cuirass"}, -- 100g, lvl 5
                     {item = "netch_leather_boots"}, -- 50g, lvl 5
                     {item = "common_pants_02"}, -- 4g
-                    {item = "random gold", count = 21} -- 21g
+                    {item = "gold_001", count = math.random(21)} -- 21g
                 }, -- 250g
                 spellList = {},
                 customSkillList = {
@@ -207,7 +207,7 @@ Minors: Armorer, Acrobatics, Sneak, Marksman, Mysticism
                     {item = "chitin guantlet - left"}, -- 50g, lvl 20
                     {item = "chitin guantlet - right"}, -- 50g, lvl 20
                     {item = "common_pants_03_c"}, -- 4g
-                    {item = "random gold", count = 28} -- 28g
+                    {item = "gold_001", count = math.random(28)} -- 28g
                 }, -- 350g
                 spellList = {},
                 customSkillList = {
@@ -234,7 +234,7 @@ Minors: Mercantile, Illusion, Sneak, Enchant, Security]]
                     {item = "common_shirt_02"}, -- 4g
                     {item = "common_belt_02"}, -- 2g
                     {item = "misc_de_drum_01"}, -- 1g
-                    {item = "random gold", count = 37} -- 37g
+                    {item = "gold_001", count = math.random(37)} -- 37g
                 }, -- 50g
                 spellList = {},
                 customSkillList = {
@@ -250,7 +250,7 @@ Minors: Mercantile, Illusion, Sneak, Enchant, Security]]
                     {item = "common_shirt_05"}, -- 4g
                     {item = "misc_de_lute_01"}, -- 10g
                     {item = "iron longsword"}, -- 120g, lvl 10
-                    {item = "random gold", count = 10} -- 10g
+                    {item = "gold_001", count = math.random(10)} -- 10g
                 }, -- 150g
                 spellList = {},
                 customSkillList = {
@@ -275,7 +275,7 @@ Minors: Mysticism, Spear, Axe, Enchant, Restoration]]
                     {item = "chitin spear"}, -- 13g, lvl 5
                     {item = "common_robe_01"}, -- 2g
                     {item = "imperial boots"}, -- 50g, lvl 20
-                    {item = "random gold", count = 18} -- 18g
+                    {item = "gold_001", count = math.random(18)} -- 18g
                 },
                 spellList = {
                     "frostbite" -- 117g
@@ -291,7 +291,7 @@ Minors: Mysticism, Spear, Axe, Enchant, Restoration]]
                     {item = "common_pants_04_b"}, -- 4g
                     {item = "iron boots"}, -- 10g, lvl 5
                     {item = "iron cuirass"}, -- 25g, lvl 5
-                    {item = "random gold", count = 48} -- 48g
+                    {item = "gold_001", count = math.random(48)} -- 48g
                 },
                 spellList = {
                     "dread curse: health" -- 69g
@@ -318,7 +318,7 @@ Minors: Speechcraft, Armorer, Alteration, Mercantile, Alchemy]]
                     {item = "extravagant_pants_02"}, -- 60g
                     {item = "expensive_shoes_03"}, -- 10g
                     {item = "expensive_shirt_03"}, -- 15g
-                    {item = "random gold", count = 135} -- 135g
+                    {item = "gold_001", count = math.random(135)} -- 135g
                 }, -- 250g
                 spellList = {},
                 customSkillList = {{skillId = "daedricSkillId", value = 10}}
@@ -329,7 +329,7 @@ Minors: Speechcraft, Armorer, Alteration, Mercantile, Alchemy]]
                     {item = "iron longsword"}, -- 120g, lvl 10
                     {item = "imperial boots"}, -- 50g, lvl 20
                     {item = "imperial left gauntlet"}, -- 33g, lvl 20
-                    {item = "random gold", count = 48} -- 48g
+                    {item = "gold_001", count = math.random(48)} -- 48g
                 }, -- 250g
                 spellList = {},
                 customSkillList = {{skillId = "daedricSkillId", value = 10}}
@@ -350,7 +350,7 @@ Minors: Illusion, Alchemy, Unarmored, Speechcraft, Enchant]]
                 gearList = {
                     {item = "common_skirt_03"}, -- 4g
                     {item = "common_shirt_04"}, -- 4g
-                    {item = "random gold", count = 12} -- 12g
+                    {item = "gold_001", count = math.random(12)} -- 12g
                 },
                 spellList = {
                     "seryn's gift", -- 115g
@@ -368,7 +368,7 @@ Minors: Illusion, Alchemy, Unarmored, Speechcraft, Enchant]]
                     {item = "sc_summonskeletalservant"}, -- 50g
                     {item = "common_shoes_05"}, -- 2g
                     {item = "wooden staff"}, -- 8g, lvl 5
-                    {item = "random gold", count = 7} -- 7g
+                    {item = "gold_001", count = math.random(7)} -- 7g
                 },
                 spellList = {
                     "sotha's mirror" -- 115g
@@ -395,7 +395,7 @@ Minors: Restoration, Mercantile, Athletics, Acrobatics, Speechcraft]]
                     {item = "common_shoes_04"}, -- 2g
                     {item = "common_shirt_05"}, -- 4g
                     {item = "iron war axe"}, -- 75g, lvl 5
-                    {item = "random gold", count = 45} -- 45g
+                    {item = "gold_001", count = math.random(45)} -- 45g
                 }, -- 150g
                 spellList = {}
             }
@@ -407,7 +407,7 @@ Minors: Restoration, Mercantile, Athletics, Acrobatics, Speechcraft]]
                     {item = "iron_greaves"}, -- 10g, lvl 5
                     {item = "common_belt_03"}, -- 2g
                     {item = "chitin war axe"}, -- 19g, lvl 5
-                    {item = "random gold", count = 59} -- 59g
+                    {item = "gold_001", count = math.random(59)} -- 59g
                 }, -- 100g
                 spellList = {}
             }
@@ -426,7 +426,7 @@ Minors: Enchant, Alchemy, Unarmored, Conjuration, Blunt Weapon]]
             return {
                 gearList = {
                     {item = "common_robe_05_b"}, -- 4g
-                    {item = "random gold", count = 27} -- 27g
+                    {item = "gold_001", count = math.random(27)} -- 27g
                 },
                 spellList = {
                     "Frostball_large" -- 269g
@@ -440,7 +440,7 @@ Minors: Enchant, Alchemy, Unarmored, Conjuration, Blunt Weapon]]
             return {
                 gearList = {
                     {item = "common_robe_02_t"}, -- 4g
-                    {item = "random gold", count = 27} -- 27g
+                    {item = "gold_001", count = math.random(27)} -- 27g
                 },
                 spellList = {
                     "Frostball_large" -- 269g
@@ -465,7 +465,7 @@ Minors: Illusion, Marksman, Athletics, Restoration, Sneak]]
             return {
                 gearList = {
                     {item = "common_robe_01"}, -- 4g
-                    {item = "random gold", count = 7} -- 7g
+                    {item = "gold_001", count = math.random(7)} -- 7g
                 },
                 spellList = {
                     "slave belt", -- 22g
@@ -482,7 +482,7 @@ Minors: Illusion, Marksman, Athletics, Restoration, Sneak]]
                     {item = "common_pants_03_c"}, -- 4g
                     {item = "common_shirt_03_c"}, -- 4g
                     {item = "common_shoes_03"}, -- 2g
-                    {item = "random gold"} -- 1g
+                    {item = "gold_001"} -- 1g
                 },
                 spellList = {
                     "slave belt", -- 22g
@@ -510,7 +510,7 @@ Minors: Light Armor, Block, Alteration, Security, Armorer]]
                     {item = "iron dagger"}, -- 10g, lvl 5
                     {item = "common_shirt_03_c"}, -- 4g
                     {item = "common_shoes_04"}, -- 2g
-                    {item = "random gold", count = 15} -- 15g
+                    {item = "gold_001", count = math.random(15)} -- 15g
                 },
                 spellList = {
                     "Frostball_large" -- 269g
@@ -523,7 +523,7 @@ Minors: Light Armor, Block, Alteration, Security, Armorer]]
                     {item = "common_shirt_02_h"}, -- 4g
                     {item = "common_pants_02"}, -- 4g
                     {item = "common_shoes_02"}, -- 2g
-                    {item = "random gold", count = 40} -- 40g
+                    {item = "gold_001", count = math.random(40)} -- 40g
                 }, -- 250g
                 spellList = {}
             }
@@ -544,7 +544,7 @@ Minors: Illusion, Armorer, Short Blade, Marksman, Alchemy]]
                     {item = "common_pants_02"}, -- 4g
                     {item = "common_shirt_02"}, -- 4g
                     {item = "common_shoes_02"}, -- 2g
-                    {item = "random gold"} -- 1g
+                    {item = "gold_001"} -- 1g
                 },
                 spellList = {
                     "slave belt", -- 22g
@@ -560,7 +560,7 @@ Minors: Illusion, Armorer, Short Blade, Marksman, Alchemy]]
                 gearList = {
                     {item = "common_belt_01"}, -- 2g
                     {item = "common_shoes_05"}, -- 2g
-                    {item = "random gold", count = 5} -- 5g
+                    {item = "gold_001", count = math.random(5)} -- 5g
                 },
                 spellList = {
                     "slave belt", -- 22g
@@ -605,7 +605,7 @@ Minors: Block, Sneak, Security, Alchemy, Armorer]]
                     {item = "common_pants_02"}, -- 4g
                     {item = "common_shirt_02_hh"}, -- 4g
                     {item = "iron longsword"}, -- 120g, lvl 20
-                    {item = "random gold", count = 22} -- 22g
+                    {item = "gold_001", count = math.random(22)} -- 22g
                 }, -- 300g
                 spellList = {},
                 customSkillList = {
@@ -646,7 +646,7 @@ Minors: Marksman, Alchemy, Mercantile, Armorer, Speechcraft]]
                     {item = "netch_leather_boots"}, -- 50g, lvl 5
                     {item = "common_pants_04"}, -- 2g
                     {item = "iron broadsowrd"}, -- 30g, lvl 5
-                    {item = "random gold", count = 18} -- 18g
+                    {item = "gold_001", count = math.random(18)} -- 18g
                 }, -- 200g
                 spellList = {},
                 customSkillList = {
@@ -669,7 +669,7 @@ Minors: Illusion, Alteration, Block, Armorer, Short Blade]]
         if math.random() < 0.5 then
             return {
                 gearList = {
-                    {item = "random gold", count = 14} -- 14g
+                    {item = "gold_001", count = math.random(14)} -- 14g
                 },
                 spellList = {
                     "mark", -- 67g 
@@ -686,7 +686,7 @@ Minors: Illusion, Alteration, Block, Armorer, Short Blade]]
                 gearList = {
                     {item = "imperial_chain_coif_helm"}, -- 35g, lvl 10
                     {item = "extravagant_shirt_02"}, -- 60g
-                    {item = "random gold", count = 23} -- 23g
+                    {item = "gold_001", count = math.random(23)} -- 23g
                 },
                 spellList = {
                     "mark", -- 67g 
@@ -717,7 +717,7 @@ Minors: Blunt Weapon, Enchant, Alchemy, Mysticism, Restoration
                     {item = "common_shoes_02"}, -- 2g
                     {item = "common_belt_02"}, -- 2g
                     {item = "iron longsword"}, -- 120g, lvl 10
-                    {item = "random gold", count = 18} -- 18g
+                    {item = "gold_001", count = math.random(18)} -- 18g
                 }, -- 150g
                 spellList = {},
                 customSkillList = {
@@ -730,7 +730,7 @@ Minors: Blunt Weapon, Enchant, Alchemy, Mysticism, Restoration
                 gearList = {
                     {item = "common_robe_02_tt"}, -- 2g
                     {item = "common_shoes_02"}, -- 2g
-                    {item = "random gold", count = 46} -- 46g
+                    {item = "gold_001", count = math.random(46)} -- 46g
                 }, -- 50g
                 spellList = {},
                 customSkillList = {

@@ -1,6 +1,4 @@
 return {
-    [tes3.skill.block] = function() return {gearList = {}, spellList = {}} end,
-    [tes3.skill.armorer] = function() return {gearList = {}, spellList = {}} end,
     [tes3.skill.heavyArmor] = function()
         local gearList = {}
         local choice = math.random()
@@ -55,13 +53,6 @@ return {
             }
         }
     end,
-    [tes3.skill.alteration] = function()
-        return {gearList = {}, spellList = {}}
-    end,
-    [tes3.skill.illusion] = function() return {gearList = {}, spellList = {}} end,
-    [tes3.skill.conjuration] = function()
-        return {gearList = {}, spellList = {}}
-    end,
     [tes3.skill.mysticism] = function()
         local choice = math.random()
         if choice > 0.75 then
@@ -90,7 +81,6 @@ return {
             }
         end
     end,
-    [tes3.skill.alchemy] = function() return {gearList = {}, spellList = {}} end,
     [tes3.skill.security] = function()
         local gearList = {{item = "pick_apprentice_01"}}
         if math.random() > 0.5 then
@@ -98,7 +88,6 @@ return {
         end
         return {gearList = gearList, spellList = {}}
     end,
-    [tes3.skill.sneak] = function() return {gearList = {}, spellList = {}} end,
     [tes3.skill.lightArmor] = function()
         local gearList = {}
         local choice = math.random()
@@ -155,21 +144,6 @@ return {
             table.insert(gearList, {item = "iron arrow", count = 50})
         end
         return {gearList = gearList, spellList = {}}
-    end,
-    [tes3.skill.mercantile] = function()
-        return {gearList = {}, spellList = {}}
-    end,
-    [tes3.skill.handToHand] = function()
-        return {gearList = {}, spellList = {}}
-    end,
-    [tes3.skill.unarmored] = function()
-        return {gearList = {}, spellList = {}}
-    end,
-    [tes3.skill.acrobatics] = function()
-        return {gearList = {}, spellList = {}}
-    end,
-    [tes3.skill.athletics] = function()
-        return {gearList = {}, spellList = {}}
     end,
     [tes3.skill.mediumArmor] = function()
         local gearList = {}

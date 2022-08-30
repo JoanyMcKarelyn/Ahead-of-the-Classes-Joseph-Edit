@@ -1,6 +1,7 @@
 local skillModule = include("OtherSkills.skillModule")
 local presetClasses = require("Danae.Classes.presetClasses")
 local customClasses = require("Danae.Classes.customClasses")
+local config = require("Danae.Classes.config").config
 
 local function modifyCustomSkills(customSkillList)
     if not customSkillList then return end
@@ -89,25 +90,12 @@ local function loaded()
         checkingChargen = true
     end
 end
-
-local config = {}
-config.configPath = "Ahead of the Classes"
-config.defaultConfig = {modEnabled = true}
-local inMemConfig = mwse.loadConfig(config.configPath, config.defaultConfig)
-config.config = setmetatable({
-    save = function() mwse.saveConfig(config.configPath, inMemConfig) end
-}, {
-    __index = function(_, key) return inMemConfig[key] end,
-    __newindex = function(_, key, value) inMemConfig[key] = value end
-})
--- code that's copied over from merlord's another mod
-
 event.register("loaded", function() if config.modEnabled then loaded() end end)
 
 local function modConfig()
     local template = mwse.mcm.createTemplate("Ahead of the Classes")
-    template:saveOnClose("Ahead of the Classes", config);
-    template:register();
+    template.onClose = function() config.save() end
+    template:register()
     local page = template:createSideBarPage({
         label = "Ahead of the Classes",
         description = ("This mod is a lite version of Danae and Merlord's Ahead of the Classes, " ..

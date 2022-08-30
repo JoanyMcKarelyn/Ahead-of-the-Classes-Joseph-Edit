@@ -31,12 +31,14 @@ function this.pickStarters()
     local function getGear(skill)
         gearCount = gearCount + 1
         local skillList = skillMapping[skill]()
-        for _, gear in ipairs(skillList.gearList) do
-            table.insert(gearList, gear)
-        end
-        --[[ Joseph Edit: Only schools of majorSkills can addSpell because spells are expensive. ]]
-        for _, spell in ipairs(skillList.spellList) do
-            table.insert(spellList, spell)
+        if skillList then
+            for _, gear in ipairs(skillList.gearList) do
+                table.insert(gearList, gear)
+            end
+            --[[ Joseph Edit: Only schools of majorSkills can addSpell because spells are expensive. ]]
+            for _, spell in ipairs(skillList.spellList) do
+                table.insert(spellList, spell)
+            end
         end
     end
 
@@ -61,51 +63,54 @@ function this.pickStarters()
     local clothingChoice = math.random(1, 5)
     if clothingChoice == 1 then
         if math.random() > 0.5 then
-            table.insert(gearList, "common_pants_03_b")
+            table.insert(gearList, {item = "common_pants_03_b"})
         end
     elseif clothingChoice == 2 then
         if math.random() > 0.5 then
-            table.insert(gearList, "common_shirt_02_t")
-            table.insert(gearList, "common_pants_02")
-            table.insert(gearList, "common_shoes_02")
+            table.insert(gearList, {item = "common_shirt_02_t"})
+            table.insert(gearList, {item = "common_pants_02"})
+            table.insert(gearList, {item = "common_shoes_02"})
         else
-            table.insert(gearList, "common_shirt_02")
-            table.insert(gearList, "common_pants_03_c")
+            table.insert(gearList, {item = "common_shirt_02"})
+            table.insert(gearList, {item = "common_pants_03_c"})
         end
     elseif clothingChoice == 3 then
         if math.random() > 0.5 then
-            table.insert(gearList, "common_shirt_03_c")
-            table.insert(gearList, "common_pants_03_c")
-            table.insert(gearList, "common_amulet_01")
+            table.insert(gearList, {item = "common_shirt_03_c"})
+            table.insert(gearList, {item = "common_pants_03_c"})
+            table.insert(gearList, {item = "common_amulet_01"})
         else
-            table.insert(gearList, "expensive_shirt_03")
-            table.insert(gearList, "extravagant_pants_02")
-            table.insert(gearList, "expensive_shoes_03")
+            table.insert(gearList, {item = "expensive_shirt_03"})
+            table.insert(gearList, {item = "extravagant_pants_02"})
+            table.insert(gearList, {item = "expensive_shoes_03"})
         end
     elseif clothingChoice == 4 then
-        table.insert(gearList, "common_shirt_04")
+        table.insert(gearList, {item = "common_shirt_04"})
         if math.random() > 0.5 then
-            table.insert(gearList, "common_pants_04")
-            table.insert(gearList, "common_shoes_04")
+            table.insert(gearList, {item = "common_pants_04"})
+            table.insert(gearList, {item = "common_shoes_04"})
         else
-            table.insert(gearList, "common_skirt_03")
+            table.insert(gearList, {item = "common_skirt_03"})
         end
     elseif clothingChoice == 5 then
-        table.insert(gearList, "common_shirt_05")
+        table.insert(gearList, {item = "common_shirt_05"})
         if math.random() > 0.5 then
-            table.insert(gearList, "common_skirt_01")
-            table.insert(gearList, "common_shoes_02")
+            table.insert(gearList, {item = "common_skirt_01"})
+            table.insert(gearList, {item = "common_shoes_02"})
         else
-            table.insert(gearList, "common_pants_04")
-            table.insert(gearList, "common_shoes_04")
+            table.insert(gearList, {item = "common_pants_04"})
+            table.insert(gearList, {item = "common_shoes_04"})
         end
     end
+
+    --[[ Joseph Edit: random gold ]]
+    table.insert(gearList, {item = "gold_001", count = math.random(42)})
 
     --[[ Joseph Edit: add a robe if player specializes in magic ]]
     if tes3.player.object.class.specialization == tes3.specialization.magic then
         local robes = {
-            "common_robe_01", "common_robe_02_t", "common_robe_02_tt",
-            "common_robe_05_b"
+            {item = "common_robe_01"}, {item = "common_robe_02_t"},
+            {item = "common_robe_02_tt"}, {item = "common_robe_05_b"}
         }
         table.insert(gearList, robes[table.choice(robes)])
     end

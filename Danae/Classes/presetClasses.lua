@@ -839,7 +839,7 @@ Minors: Medium Armor, Block, Armorer, Speechcraft, Mysticism]]
                     {item = "imperial_chain_cuirass"}, -- 90g, lvl 10
                     {item = "imperial_chain_greaves"}, -- 50g, lvl 10
                     {item = "BM bear boots"}, -- 50g, lvl 20
-                    {item = "common_skirt_02"}, -- 4g
+                    {item = "common_pants_02"}, -- 4g
                     {item = "wooden staff"}, -- 8g, lvl 5
                     {item = "common_shirt_02"}, -- 4g
                     {item = "random_gold", count = 34} -- 34g

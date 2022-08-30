@@ -20,7 +20,7 @@ end
 
 local function addGear(gearList)
     for _, gear in ipairs(gearList) do
-        if tes3.getObject(gear.item) then
+        if gear.item and tes3.getObject(gear.item) then
             tes3.addItem {
                 reference = tes3.player,
                 item = gear.item,

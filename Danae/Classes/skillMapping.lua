@@ -112,11 +112,10 @@ return {
         return {gearList = gearList, spellList = {}}
     end,
     [tes3.skill.shortBlade] = function()
-        --[[local shortBlade = {
+        local shortBlade = {
             "iron tanto", "iron dagger", "chitin dagger", "silver dagger",
             "steel tanto", "fireblade", ""
-        }]]
-        local shortBlade = {""}
+        }
         return {
             gearList = {{item = shortBlade[table.choice(shortBlade)]}},
             spellList = {}

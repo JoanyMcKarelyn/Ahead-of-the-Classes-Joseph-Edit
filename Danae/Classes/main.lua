@@ -14,7 +14,9 @@ end
 
 local function addSpells(spellList)
     for _, spell in ipairs(spellList) do
-        tes3.addSpell({reference = tes3.player, spell = spell})
+        if spell ~= "" then
+            tes3.addSpell({reference = tes3.player, spell = spell})
+        end
     end
 end
 
@@ -28,8 +30,6 @@ local function addGear(gearList)
                 updateGUI = false,
                 playSound = false
             }
-        else
-            mwse.log("%s does not exist", gear.item)
         end
     end
     tes3ui.forcePlayerInventoryUpdate()

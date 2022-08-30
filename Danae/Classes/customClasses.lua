@@ -28,6 +28,7 @@ function this.pickStarters()
 
     local gearCount = 0
 
+    ---@param skill number
     local function getGear(skill)
         gearCount = gearCount + 1
         local skillList = skillMapping[skill]()
@@ -42,21 +43,41 @@ function this.pickStarters()
         end
     end
 
-    -- Get up to 5 major skill gears
+    local hasMajorWeaponSkill = false
+    local hasMinorWeaponSkill = false
+
+    ---@type number[]
+    local minorWeaponSkills = {}
+
+    -- Get major skill gears
     for _, skill in ipairs(majorSkills) do
-        if gearCount >= 5 then break end
         if skillMapping[skill] then getGear(skill) end
+        if (not hasMajorWeaponSkill) and weaponSkills[skill] then
+            hasMajorWeaponSkill = true
+        end
     end
 
-    --[[ Joseph Edit: Only if majorSkills don't have any of the weaponSkills,
-    will minorSkills addGear to make sure player get at least one weapon, 
-    if minorSkills have any of the weaponSkills. ]]
-    for i, skill in ipairs(topSkills) do
-        if weaponSkills[skill] then
-            getGear(skill)
-            table.remove(topSkills, i)
-            break
+    -- Get minor skill gears
+    for _, skill in ipairs(minorSkills) do
+        --[[ Joseph Edit: 50 percent chance of getting a lockpick and/or a probe if security is a minor skill ]]
+        if skill == tes3.skill.security then
+            local choice = math.random()
+            if choice > 0.5 then getGear(skill) end
+            --[[ Joseph Edit: Only if majorSkills don't have any of the weaponSkills,
+        will minorSkills addGear to make sure player get at least one weapon, 
+        if minorSkills have any of the weaponSkills. ]]
+        elseif (not hasMajorWeaponSkill) and weaponSkills[skill] then
+            table.insert(minorWeaponSkills, skill)
+            hasMinorWeaponSkill = true
+            mwse.log("Skill %s is a minor weapon skill. ", skill)
         end
+    end
+    if not hasMajorWeaponSkill and hasMinorWeaponSkill then
+        local choice = math.random(#minorWeaponSkills)
+        local minorWeaponSkill = minorWeaponSkills[choice]
+        mwse.log("The %sth skill %s is the chosen minor weapon skill. ", choice,
+                 minorWeaponSkill)
+        getGear(minorWeaponSkill)
     end
 
     --[[ Joseph Edit: random clothing ]]
@@ -109,10 +130,10 @@ function this.pickStarters()
     --[[ Joseph Edit: add a robe if player specializes in magic ]]
     if tes3.player.object.class.specialization == tes3.specialization.magic then
         local robes = {
-            {item = "common_robe_01"}, {item = "common_robe_02_t"},
-            {item = "common_robe_02_tt"}, {item = "common_robe_05_b"}
+            "common_robe_01", "common_robe_02_t", "common_robe_02_tt",
+            "common_robe_05_b"
         }
-        table.insert(gearList, robes[table.choice(robes)])
+        table.insert(gearList, {item = robes[math.random(#robes)]})
     end
 
     return {gearList = gearList, spellList = spellList}

@@ -261,15 +261,15 @@ Minors: Mercantile, Illusion, Sneak, Enchant, Security]]
         end
     end,
 
-    ["Battlemage"] = function()
-        --[[Battlemage
+    --[[["Battlemage"] = function()]]
+    --[[Battlemage
 
 Attributes: Intelligence / Endurance
 Specialization: Magic
 
 Majors: Alteration, Destruction, Conjuration, Block, Heavy Armor
 Minors: Mysticism, Spear, Axe, Enchant, Restoration]]
-        if math.random() < 0.5 then
+    --[[if math.random() < 0.5 then
             return {
                 gearList = {
                     {item = "chitin spear"}, -- 13g, lvl 5
@@ -301,7 +301,7 @@ Minors: Mysticism, Spear, Axe, Enchant, Restoration]]
                 }
             }
         end
-    end,
+    end,]]
 
     ["Crusader"] = function()
         --[[Crusader

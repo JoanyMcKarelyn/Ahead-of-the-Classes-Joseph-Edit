@@ -19,7 +19,7 @@ return {
         return {gearList = gearList, spellList = {}}
     end,
     [tes3.skill.bluntWeapon] = function()
-        if math.random() > 0.66 then
+        if math.random() < 0.66 then
             if tes3.mobilePlayer.strength.base >
                 tes3.mobilePlayer.intelligence.base then
                 return {gearList = {{item = "spiked club"}}, spellList = {}}
@@ -29,43 +29,38 @@ return {
         end
     end,
     [tes3.skill.longBlade] = function()
-        local longBlade = {
-            {item = "iron broadsword"}, {item = "iron longsword"}
+        local longBlade = {"iron broadsword", "iron longsword", ""}
+        return {
+            gearList = {{item = longBlade[math.random(#longBlade)]}},
+            spellList = {}
         }
-        return {gearList = {{item = table.choice(longBlade)}}, spellList = {}}
     end,
     [tes3.skill.axe] = function()
-        local axe = {"iron war axe", "chitin war axe"}
-        return {gearList = {{item = axe[table.choice(axe)]}}, spellList = {}}
+        local axe = {"iron war axe", "chitin war axe", ""}
+        return {gearList = {{item = axe[math.random(#axe)]}}, spellList = {}}
     end,
     [tes3.skill.spear] = function()
         return {gearList = {{item = "chitin spear"}}, spellList = {}}
     end,
-    [tes3.skill.enchant] = function() return {gearList = {}, spellList = {}} end,
     [tes3.skill.destruction] = function()
         local destructionSpell = {
-            "frostbite", "dread curse: health", "Frostball_large"
+            "frostbite", "dread curse: health", "Frostball_large", ""
         }
         return {
             gearList = {},
-            spellList = {
-                item = destructionSpell[table.choice(destructionSpell)]
-            }
+            spellList = {destructionSpell[math.random(#destructionSpell)]}
         }
     end,
     [tes3.skill.mysticism] = function()
         local choice = math.random()
-        if choice > 0.75 then
-            return {gearList = {}, spellList = {{item = "sotha's mirror"}}}
-        elseif choice > 0.5 then
-            return {gearList = {}, spellList = {{item = "mark", "recall"}}}
-        elseif choice > 0.25 then
-            return {
-                gearList = {},
-                spellList = {{item = "sotha's mirror", "mark"}}
-            }
-        else
-            return {gearList = {}, spellList = {{item = "slave belt", "mark"}}}
+        if choice > 0.8 then
+            return {gearList = {}, spellList = {"sotha's mirror"}}
+        elseif choice > 0.6 then
+            return {gearList = {}, spellList = {"mark", "recall"}}
+        elseif choice > 0.4 then
+            return {gearList = {}, spellList = {"sotha's mirror", "mark"}}
+        elseif choice > 0.2 then
+            return {gearList = {}, spellList = {"slave belt", "mark"}}
         end
     end,
     [tes3.skill.restoration] = function()
@@ -117,7 +112,7 @@ return {
             "steel tanto", "fireblade", ""
         }
         return {
-            gearList = {{item = shortBlade[table.choice(shortBlade)]}},
+            gearList = {{item = shortBlade[math.random(#shortBlade)]}},
             spellList = {}
         }
     end,
@@ -161,7 +156,7 @@ return {
     [tes3.skill.speechcraft] = function()
         local instrument = {"misc_de_drum_01", "misc_de_lute_01"}
         return {
-            gearList = {{item = instrument[table.choice(instrument)]}},
+            gearList = {{item = instrument[math.random(#instrument)]}},
             spellList = {}
         }
     end

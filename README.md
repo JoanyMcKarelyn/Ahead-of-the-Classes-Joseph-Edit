@@ -1,7 +1,7 @@
 # Ahead of the Classes - Joseph Edit
 This mod is a lite and rebalanced version of Danae and Merlord's [Ahead of the Classes](https://www.nexusmods.com/morrowind/mods/50346), with compatibility for [Better Character Classes](https://www.nexusmods.com/morrowind/mods/47078), and without all the new playable classes that Danae worked very hard to create and TR OAAB dependency. 
 
-This is a standalone version and no esp needed. 
+This is a standalone version and no esp needed. To download the mod, click 'Code' and then 'Download zip'. Before installing them, I suggest deleting the file `README.md`. 
 
 In vanilla Morrowind, the Imperials gives you basically nothing, just dumps you on the Bitter Coast, and tells you to go find Caius Cosades. While the 'starting from nothing and now we're here' experience can be great, it gets annoying if you're someone who starts new characters very often. What this mod does is that your character will have some basic starting gear that's based on your class. Nothing too crazy though. It just gives a fighting chance against a rat. 
   

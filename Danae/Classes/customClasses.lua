@@ -98,14 +98,10 @@ function this.pickStarters()
         -- hasMinorArmorSkill is true means at least one armor skill value is not 0
         local bestMinorArmorSkill = tes3.skill.unarmored
         for skill, value in pairs(armorSkills) do
-            mwse.log("Skill %s has value %s.", skill, value)
             if value > tes3.mobilePlayer:getSkillValue(bestMinorArmorSkill) then
                 bestMinorArmorSkill = skill
             end
         end
-        mwse.log("The best minor armor skill is level %s %s",
-                 tes3.mobilePlayer:getSkillValue(bestMinorArmorSkill),
-                 bestMinorArmorSkill)
         getGear(bestMinorArmorSkill)
     end
 
@@ -162,7 +158,9 @@ function this.pickStarters()
             "common_robe_01", "common_robe_02_t", "common_robe_02_tt",
             "common_robe_05_b"
         }
-        table.insert(gearList, {item = robes[math.random(#robes)]})
+        local robe = robes[math.random(#robes)]
+        mwse.log("Adding robe %s.", robe)
+        table.insert(gearList, {item = robe})
     end
 
     return {gearList = gearList, spellList = spellList}

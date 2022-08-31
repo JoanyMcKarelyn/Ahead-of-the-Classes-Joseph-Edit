@@ -52,13 +52,12 @@ local function startClass()
     local class = tes3.player.object.class.id
     local starters
     --[[Joseph Edit: the preset loadouts are for Better Character Classes only]]
-    --[[if tes3.isModActive("Better Character Classes.esp") and
+    if tes3.isModActive("Better Character Classes.esp") and
         presetClasses.pickStarters[class] then
         starters = presetClasses.pickStarters[class]()
     else
         starters = customClasses.pickStarters()
-    end]]
-    starters = customClasses.pickStarters()
+    end
     addSpells(starters.spellList)
     addGear(starters.gearList)
     modifyCustomSkills(starters.customSkillList)

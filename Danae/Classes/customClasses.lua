@@ -10,6 +10,14 @@ local weaponSkills = {
     [tes3.skill.axe] = true,
     [tes3.skill.spear] = true
 }
+--[[ Joseph Edit: Normally, skills start at level 5. 
+    Here, 0 is used as a flag for true. ]]
+local armorSkills = {
+    [tes3.skill.unarmored] = 0,
+    [tes3.skill.lightArmor] = 0,
+    [tes3.skill.mediumArmor] = 0,
+    [tes3.skill.heavyArmor] = 0
+}
 
 function this.pickStarters()
     -- Get list of major/minor skills
@@ -45,6 +53,8 @@ function this.pickStarters()
 
     local hasMajorWeaponSkill = false
     local hasMinorWeaponSkill = false
+    local hasMajorArmorSkill = false
+    local hasMinorArmorSkill = false
 
     ---@type number[]
     local minorWeaponSkills = {}
@@ -54,6 +64,10 @@ function this.pickStarters()
         if skillMapping[skill] then getGear(skill) end
         if (not hasMajorWeaponSkill) and weaponSkills[skill] then
             hasMajorWeaponSkill = true
+        end
+        --[[ armorSkills[skill] == 0 means this skill is an armor skill ]]
+        if (not hasMajorArmorSkill) and armorSkills[skill] == 0 then
+            hasMajorArmorSkill = true
         end
     end
 
@@ -69,15 +83,30 @@ function this.pickStarters()
         elseif (not hasMajorWeaponSkill) and weaponSkills[skill] then
             table.insert(minorWeaponSkills, skill)
             hasMinorWeaponSkill = true
-            mwse.log("Skill %s is a minor weapon skill. ", skill)
+        elseif (not hasMajorArmorSkill) and armorSkills[skill] == 0 then
+            --[[ set armorSkills[skill] to the value of the armor skill if they are minor skills ]]
+            armorSkills[skill] = tes3.mobilePlayer:getSkillValue(skill)
+            hasMinorArmorSkill = true
         end
     end
     if not hasMajorWeaponSkill and hasMinorWeaponSkill then
         local choice = math.random(#minorWeaponSkills)
         local minorWeaponSkill = minorWeaponSkills[choice]
-        mwse.log("The %sth skill %s is the chosen minor weapon skill. ", choice,
-                 minorWeaponSkill)
         getGear(minorWeaponSkill)
+    end
+    if not hasMajorArmorSkill and hasMinorArmorSkill then
+        -- hasMinorArmorSkill is true means at least one armor skill value is not 0
+        local bestMinorArmorSkill = tes3.skill.unarmored
+        for skill, value in pairs(armorSkills) do
+            mwse.log("Skill %s has value %s.", skill, value)
+            if value > tes3.mobilePlayer:getSkillValue(bestMinorArmorSkill) then
+                bestMinorArmorSkill = skill
+            end
+        end
+        mwse.log("The best minor armor skill is level %s %s",
+                 tes3.mobilePlayer:getSkillValue(bestMinorArmorSkill),
+                 bestMinorArmorSkill)
+        getGear(bestMinorArmorSkill)
     end
 
     --[[ Joseph Edit: random clothing ]]

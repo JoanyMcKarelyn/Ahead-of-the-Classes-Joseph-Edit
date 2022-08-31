@@ -261,15 +261,15 @@ Minors: Mercantile, Illusion, Sneak, Enchant, Security]]
         end
     end,
 
-    --[[["Battlemage"] = function()]]
-    --[[Battlemage
+    ["Battlemage"] = function()
+        --[[Battlemage
 
 Attributes: Intelligence / Endurance
 Specialization: Magic
 
 Majors: Alteration, Destruction, Conjuration, Block, Heavy Armor
 Minors: Mysticism, Spear, Axe, Enchant, Restoration]]
-    --[[if math.random() < 0.5 then
+        if math.random() < 0.5 then
             return {
                 gearList = {
                     {item = "chitin spear"}, -- 13g, lvl 5
@@ -301,7 +301,7 @@ Minors: Mysticism, Spear, Axe, Enchant, Restoration]]
                 }
             }
         end
-    end,]]
+    end,
 
     ["Crusader"] = function()
         --[[Crusader
@@ -756,7 +756,9 @@ Minors: Marksman, Speechcraft, Illusion, Mercantile, Athletics]]
                     {item = "common_shirt_05"}, -- 4g
                     {item = "common_pants_03_c"}, -- 4g
                     {item = "netch_leather_boots"}, -- 50g, lvl 5
-                    {item = "random_gold", count = 46} -- 46g
+                    {item = "pick_apprentice_01"}, -- 10g
+                    {item = "probe_apprentice_01"}, -- 10g
+                    {item = "random_gold", count = 26} -- 26g
                 }, -- 100g
                 spellList = {},
                 customSkillList = {{skillId = "climbing", value = 15}}
@@ -767,7 +769,8 @@ Minors: Marksman, Speechcraft, Illusion, Mercantile, Athletics]]
                     {item = "fireblade"}, -- 375g, lvl 30
                     {item = "common_shirt_02_h"}, -- 4g
                     {item = "common_shoes_02"}, -- 2g
-                    {item = "random_gold", count = 20} -- 19g
+                    {item = "pick_apprentice_01"}, -- 10g
+                    {item = "probe_apprentice_01"} -- 10g
                 }, -- 400g
                 spellList = {},
                 customSkillList = {{skillId = "climbing", value = 15}}

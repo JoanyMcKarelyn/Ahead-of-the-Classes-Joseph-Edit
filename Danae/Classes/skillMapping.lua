@@ -44,7 +44,7 @@ return {
     end,
     [tes3.skill.destruction] = function()
         local destructionSpell = {
-            "frostbite", "dread curse: health", "Frostball_large", ""
+            "frostbite", "dread curse: health", "Frostball_large", "weary", ""
         }
         return {
             gearList = {},
@@ -64,9 +64,9 @@ return {
         end
     end,
     [tes3.skill.restoration] = function()
-        if math.random() > 0.5 then
+        if math.random() > 0.66 then
             return {gearList = {}, spellList = {"seryn's gift", "cure poison"}}
-        else
+        elseif math.random() > 0.33 then
             return {
                 gearList = {
                     {item = "p_restore_health_c", count = 5},
@@ -86,19 +86,19 @@ return {
     [tes3.skill.lightArmor] = function()
         local gearList = {}
         local choice = math.random()
-        if choice > 0.8 then
+        if choice > 0.83 then
             table.insert(gearList, {item = "netch_leather_cuirass"})
             table.insert(gearList, {item = "netch_leather_greaves"})
             table.insert(gearList, {item = "fur_boots"})
-        elseif choice > 0.6 then
+        elseif choice > 0.66 then
             table.insert(gearList, {item = "netch_leather_gauntlet_left"})
             table.insert(gearList, {item = "netch_leather_greaves"})
-        elseif choice > 0.4 then
+        elseif choice > 0.5 then
             table.insert(gearList, {item = "netch_leather_cuirass"})
             table.insert(gearList, {item = "netch_leather_boots"})
-        elseif choice > 0.2 then
+        elseif choice > 0.33 then
             table.insert(gearList, {item = "netch_leather_boots"})
-        else
+        elseif choice > 0.16 then
             table.insert(gearList, {item = "chitin greaves"})
             table.insert(gearList, {item = "chitin boots"})
             table.insert(gearList, {item = "chitin guantlet - left"})
@@ -154,7 +154,7 @@ return {
         return {gearList = gearList, spellList = {}}
     end,
     [tes3.skill.speechcraft] = function()
-        local instrument = {"misc_de_drum_01", "misc_de_lute_01"}
+        local instrument = {"misc_de_drum_01", "misc_de_lute_01", ""}
         return {
             gearList = {{item = instrument[math.random(#instrument)]}},
             spellList = {}

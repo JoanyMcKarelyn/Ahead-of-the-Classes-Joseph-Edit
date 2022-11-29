@@ -1,4 +1,5 @@
-# Ahead of the Classes - Joseph Edit
+# Ahead of the Classes Lite
+
 This mod is a lite and rebalanced version of Danae and Merlord's [Ahead of the Classes](https://www.nexusmods.com/morrowind/mods/50346), with compatibility for [Better Character Classes](https://www.nexusmods.com/morrowind/mods/47078), and without all the new playable classes that Danae worked very hard to create and TR OAAB dependency. 
 
 This is a standalone version and no esp needed. To download the mod, click 'Code' and then 'Download zip'. 

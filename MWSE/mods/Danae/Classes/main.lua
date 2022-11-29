@@ -1,7 +1,6 @@
 local skillModule = include("OtherSkills.skillModule")
 local presetClasses = require("Danae.Classes.presetClasses")
 local customClasses = require("Danae.Classes.customClasses")
--- local config = require("Danae.Classes.config").config
 
 local function modifyCustomSkills(customSkillList)
 	if not customSkillList then
